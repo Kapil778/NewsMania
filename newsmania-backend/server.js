@@ -7,7 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const API_KEY = "4754e9f34178990b1afdcc65fb4c5d29";
+const API_KEY = process.env.GNEWS_API_KEY;
+app.get("/", (req, res) => {
+  res.send("NewsMania Backend is Running 🚀");
+});
 app.get("/news", async (req, res) => {
   try {
     const language = req.query.lang || "en";
@@ -66,7 +69,7 @@ app.get("/news", async (req, res) => {
     });
   }
 });
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
