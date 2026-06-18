@@ -65,7 +65,7 @@ function App() {
 
   const fetchNews = (lang) => {
     axios
-      .get(`http://newsmania-ccuq.onrender.com/news?lang=${lang}`)
+      .get(`https://newsmania-ccuq.onrender.com/news?lang=${lang}`)
       .then((response) => {
         setArticles(response.data.articles);
       })
